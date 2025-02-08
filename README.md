@@ -1,6 +1,8 @@
 # ShopVue
 
-## Что использовано:
+# Что использовано:
 
-# Vue3
-# tileWindCss v3
+## Vue3
+## tileWindCss v3
+## AutoAnimate
+## Vue-router

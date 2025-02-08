@@ -1,5 +1,5 @@
 <template>
-    <div class="grid grid-cols-4 gap-5">
+    <div class="grid grid-cols-4 gap-5" v-auto-animate>
         <Card 
             v-for="item in items"
             :key="item.id"
@@ -7,8 +7,8 @@
             :title="item.title" 
             :image-url="item.imageUrl" 
             :price="item.price"
-            :onClickFavorite="() => emit('addToFavorite', item)"
-            :onClickAdd="() => emit('addToCart', item)"
+            :onClickFavorite="isFavorite ? null : () => emit('addToFavorite', item)"
+            :onClickAdd="isFavorite ? null : () => emit('addToCart', item)"
             :isFavorite="item.isFavorite"
             :isAdded="item.isAdded"
         />
@@ -23,6 +23,7 @@
 
     defineProps({
         items: Array,
+        isFavorite: Boolean
     });
 
 

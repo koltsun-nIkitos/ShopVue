@@ -2,12 +2,12 @@
     <div class="border border-slate-200 p-4 rounded-xl flex items-center gap-4">
         <img :src="imageUrl" :alt="title" class="w-16 h-16">
 
-        <div class="flex flex-col">
+        <div class="flex flex-col flex-1">
             <p>{{ title }}</p>
 
             <div class="flex justify-between mt-2">
-                <b>{{ price }} руб.</b>
-                <img class="opacity-40 hover:opacity-100 cursor-pointer transition" 
+                <b class="flex-1">{{ price }} руб.</b>
+                <img @click="emit('onClickRemove')" class="opacity-40 hover:opacity-100 cursor-pointer transition" 
                     src="/close.svg"
                     alt="close icon"
                 >
@@ -18,6 +18,8 @@
 </template>
 
 <script setup>
+    const emit = defineEmits('onClickRemove')
+
     defineProps({
         id: Number,
         title: String,
